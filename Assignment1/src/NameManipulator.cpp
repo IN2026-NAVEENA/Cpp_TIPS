@@ -3,8 +3,6 @@
 #include<algorithm>
 #include<cctype>
 
-using namespace std;
-
 /// @brief Calculates the number of bytes required to store the name.
 /// @param name Character array representing the name.
 /// @return The number of bytes to store the name.
@@ -18,7 +16,7 @@ int calculateBytes(char name[])
 /// @return A pointer to the sorted character array.
 char* sortName(char name[])
 {
-    sort(name,name + strlen(name));
+    std::sort(name,name + strlen(name));
     return name;
 }
 
@@ -39,16 +37,16 @@ int main()
 {
     char name[] = "Naveena";
 
-    cout << "The number of bytes required to store " << name << " is " << calculateBytes(name) << endl;
+    std::cout << "The number of bytes required to store " << name << " is " << calculateBytes(name) << std::endl;
 
     toLowerCase(name);
     sortName(name);
 
-    cout << "The alpabetic sorted order is ";
+    std::cout << "The alpabetic sorted order is ";
 
     for(int i = 0; name[i] != '\0'; ++i)
     {
-        cout << name[i] << " ";
+        std::cout << name[i] << " ";
     }
 
     return 0;
