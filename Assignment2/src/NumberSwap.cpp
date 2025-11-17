@@ -1,9 +1,10 @@
 #include<iostream>
-using namespace std;
 
-/// @brief Swaps the values of two integers using references.
-/// @param firstNumber Refernece of first number
-/// @param secondNumber Refernece of second number
+/*
+@brief Swaps the values of two integers using references.
+@param firstNumber Reference of first number
+@param secondNumber Reference of second number
+*/
 void swapNumber(int& firstNumber, int& secondNumber)
 {
     int tempNumber = firstNumber;
@@ -16,13 +17,13 @@ int main()
 {
     int firstNumber = 10;
     int secondNumber = 20;
-    cout << "Before Swapping\n";
-    cout << "The value of first number is " << firstNumber << " and second number is " << secondNumber ;
+    std::cout << "Before Swapping" << std::endl;
+    std::cout << "The value of first number is " << firstNumber << " and second number is " << secondNumber << std::endl;
 
     swapNumber(firstNumber,secondNumber);
 
-    cout << "\nAfter Swapping\n";
-    cout << "The value of first number is " << firstNumber << " and second number is " << secondNumber ;
+    std::cout << "After Swapping" << std::endl;
+    std::cout << "The value of first number is " << firstNumber << " and second number is " << secondNumber << std::endl;
 
     return 0;
 }

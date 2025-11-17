@@ -8,28 +8,34 @@
 /// @brief Starts the interactive menu loop for managing student data.
 void UiUtility::Run()
 {
-    std::cout << "========================================\n"
-                 "           STUDENT MANAGER\n"
-                 "========================================\n";
+    std::cout << "========================================" << std::endl
+                 << "           STUDENT MANAGER" << std::endl
+                 << "========================================" << std::endl;
     InputStudentData();
     int choice;
     do 
     {
         do 
         {
-            std::cout <<"\nWhat would you like to do with the student data\n"
-                        "1.Display Student data\n"
-                        "2.Search student\n"
-                        "3.Exit\n";
+            std::cout <<"\nWhat would you like to do with the student data" << std::endl
+                      <<  "1.Display Student data" << std::endl
+                      <<  "2.Search student" << std::endl
+                      <<  "3.Exit" << std::endl;
             std::cout << "Enter your choice: ";
             std::cin >> choice;
         } while (!isValidNumber(choice));
 
         switch (choice) 
         {
-            case 1: DisplayAllStudents(); break;
-            case 2: SearchStudent(); break;
-            case 3: std::cout << "Exiting the application!\n"; break;
+            case 1: 
+                DisplayAllStudents(); 
+                break;
+            case 2: 
+                SearchStudent(); 
+                break;
+            case 3: 
+                std::cout << "Exiting the application!" << std::endl; 
+                break;
         }
     } while (choice != 3);
 }
@@ -45,9 +51,9 @@ void UiUtility::InputStudentData()
         std::cin >> numberOfStudents;
     } while (!isValidNumber(numberOfStudents));
 
-    for (int i = 1; i <= numberOfStudents; ++i) 
+    for (int studentNumber = 1; studentNumber <= numberOfStudents; ++studentNumber) 
     {
-        std::cout << "Enter details of student " << i << std::endl;
+        std::cout << "Enter details of student " << studentNumber << std::endl;
         do 
         {
             std::cout << "Name: ";
@@ -65,20 +71,20 @@ void UiUtility::InputStudentData()
             std::cout << "Rank: ";
             std::cin >> studentRank;
         } while (!isValidNumber(studentRank));
-        studentManager_.Add(Student(name, rollNumber, studentRank));
+        studentManager.Add(Student(name, rollNumber, studentRank));
     }
 }
 
 /// @brief Gets all student data and displays them to the user.
 void UiUtility::DisplayAllStudents() const
 {
-    std::cout << "\n----------------------------------------\n"
-                 "             STUDENT DETAILS\n"
-                 "----------------------------------------\n";
+    std::cout << "========================================" << std::endl
+                 << "           STUDENT DETAILS" << std::endl
+                 << "========================================" << std::endl;
 
-    for (const auto& s : studentManager_.GetAll()) 
+    for (const auto& student : studentManager.GetAll()) 
     {
-        s.Student::Display();
+        student.Display();
         std::cout << "----------------------------------------\n";
     }
 }
@@ -93,7 +99,7 @@ void UiUtility::SearchStudent() const
         std::cin >> name;
     } while (!isValidName(name));
 
-    auto student = studentManager_.FindByName(name);
+    auto student = studentManager.FindByName(name);
     if (!student) 
     {
         std::cout << "Student not found!\n";      

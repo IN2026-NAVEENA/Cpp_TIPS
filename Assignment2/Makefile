@@ -1,61 +1,46 @@
 # Makefile for Assignment 2
- 
-# Compiler
+
+# Compiler and flags
 CXX = g++
-CXXFLAGS = -std=c++17 -Wall -Iinclude
- 
+CXXFLAGS = -std=c++17 -Wall -Iinclude -MMD -MP
+
 # Directories
 SRC_DIR = src
 OBJ_DIR = build
 BIN_DIR = bin
- 
+
 # Executables
-NUMBERSWAP = $(BIN_DIR)/numberswap
-STUDENTMANAGER  = $(BIN_DIR)/studentmanager
- 
+PROGRAMS = numberswap studentmanager
+TARGETS = $(addprefix $(BIN_DIR)/,$(PROGRAMS))
+
 # Ensure build and bin directories exist
 $(shell mkdir -p $(OBJ_DIR) $(BIN_DIR))
- 
-# Source files
-STUDENT_SRCS = $(SRC_DIR)/Student.cpp $(SRC_DIR)/UiUtility.cpp $(SRC_DIR)/Validation.cpp $(SRC_DIR)/Main.cpp $(SRC_DIR)/StudentManager.cpp
-STUDENT_OBJS = $(OBJ_DIR)/Student.o $(OBJ_DIR)/UiUtility.o $(OBJ_DIR)/Validation.o $(OBJ_DIR)/Main.o $(OBJ_DIR)/StudentManager.o
- 
-# Default target: build both executables
-all: $(NUMBERSWAP) $(STUDENTMANAGER)
 
-# NumberSwap target: builds only number swap execute file 
-numberswap: $(NUMBERSWAP)
+# Source files for studentmanager
+STUDENT_SRCS = Student.cpp UiUtility.cpp Validation.cpp Main.cpp StudentManager.cpp
+STUDENT_OBJS = $(addprefix $(OBJ_DIR)/,$(STUDENT_SRCS:.cpp=.o))
 
-# StudentManager target: builds only student manager execte file
-studentmanager: $(STUDENTMANAGER)
+# Default target: build all executables
+all: $(TARGETS)
 
-# Build numberswap
-
-$(NUMBERSWAP): $(OBJ_DIR)/numberswap.o
+# Build rules for executables
+$(BIN_DIR)/numberswap: $(OBJ_DIR)/numberswap.o
 	$(CXX) $(CXXFLAGS) $< -o $@
- 
-$(OBJ_DIR)/numberswap.o: $(SRC_DIR)/numberswap.cpp
-	$(CXX) $(CXXFLAGS) -c $< -o $@
- 
-# Build studentdatamanager
 
-$(STUDENTMANAGER): $(STUDENT_OBJS)
-	$(CXX) $(CXXFLAGS) $(STUDENT_OBJS) -o $@
- 
+$(BIN_DIR)/studentmanager: $(STUDENT_OBJS)
+	$(CXX) $(CXXFLAGS) $^ -o $@
+
+# Generic object build rule
 $(OBJ_DIR)/%.o: $(SRC_DIR)/%.cpp
 	$(CXX) $(CXXFLAGS) -c $< -o $@
- 
-# Run the number swap program
 
-run-numberswap: numberswap
-	./bin/numberswap
-
-# Run the student manager
-
-run-studentmanager: studentmanager
-	./bin/studentmanager
+# Run targets
+run-%: $(BIN_DIR)/%
+	$<
 
 # Clean rule
-
 clean:
-	rm -rf $(OBJ_DIR)/*.o $(BIN_DIR)/*
+	rm -rf $(OBJ_DIR)/*.o $(OBJ_DIR)/*.d $(BIN_DIR)/*
+
+# Include dependency files
+-include $(OBJ_DIR)/*.d

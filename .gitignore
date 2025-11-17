@@ -1,0 +1,8 @@
+# Ignore VS Code settings everywhere
+*/.vscode/
+
+# Ignore bin folders everywhere
+*/bin/
+
+# Ignore build folders everywhere
+*/build/

@@ -2,8 +2,10 @@
 #include<vector>
 #include "Student.hpp"
 
-/// @brief Gets the name of the student
-/// @return Name of the student
+/*
+@brief Gets the name of the student
+@return Name of the student
+*/
 std::string Student::getName() const 
 { 
     return name_; 

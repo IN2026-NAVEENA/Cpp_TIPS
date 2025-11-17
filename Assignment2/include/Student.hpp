@@ -16,17 +16,21 @@ class Student
         int rank_;
 
     public:
-        /// @brief Initializes a student with name, roll number, and rank.
-        /// @param name Name of the student.
-        /// @param rollNumber Roll number of the student.
-        /// @param rank Rank of the student.
+        /*
+        @brief Initializes a student with name, roll number, and rank.
+        @param name Name of the student.
+        @param rollNumber Roll number of the student.
+        @param rank Rank of the student.
+        */
         Student(std::string name, int rollNumber, int rank)
             :name_(name), rollNumber_(rollNumber), rank_(rank){}
 
-    /// @brief Gets the name of the student
-    /// @return Name of the student
-    std::string getName() const;
+        /*
+        @brief Gets the name of the student
+        @return Name of the student
+        */
+        std::string getName() const;
 
-    /// @brief Displays the details of the student
-    void Display() const;
+        /// @brief Displays the details of the student
+        void Display() const;
 };
