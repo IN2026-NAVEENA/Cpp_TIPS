@@ -1,35 +1,40 @@
 #include<iostream>
+#include <stddef.h>
 #include<cstring>
 #include<algorithm>
 #include<cctype>
 
-/// @brief Calculates the number of bytes required to store the name.
-/// @param name Character array representing the name.
-/// @return The number of bytes to store the name.
-int calculateBytes(char name[])
+/*
+@brief Calculates the number of bytes required to store the name.
+@param name Character array representing the name.
+@return The number of bytes to store the name.
+*/
+size_t calculateBytes(char name[])
 {
-    return strlen(name) * sizeof(char);
+    return strlen(name) * sizeof(char) + 1;
 }
 
-/// @brief Sorts the name in alphabetical order.
-/// @param name Character array representing the name.
-/// @return A pointer to the sorted character array.
-char* sortName(char name[])
+/*
+@brief Sorts the name in alphabetical order.
+@param name Character array representing the name.
+@return A pointer to the sorted character array.
+*/
+void sortName(char name[])
 {
     std::sort(name,name + strlen(name));
-    return name;
 }
 
-/// @brief Converts each character of the string to lower case.
-/// @param name Character array representing the name.
-/// @return A pointer to the modified character array with all characters in lowercase.
-char* toLowerCase(char name[])
+/*
+@brief Converts each character of the string to lower case.
+@param name Character array representing the name.
+@return A pointer to the modified character array with all characters in lowercase.
+*/
+void toLowerCase(char name[])
 {
-    for(int i = 0; name[i] != '\0'; ++i)
+    for(int index = 0; name[index] != '\0'; ++index)
     {
-        name[i] = tolower(name[i]);
+        name[index] = tolower(name[index]);
     }
-    return name;
 }
 
 /// @brief Entry point of the program.
@@ -42,12 +47,12 @@ int main()
     toLowerCase(name);
     sortName(name);
 
-    std::cout << "The alpabetic sorted order is ";
+    std::cout << "The alphabetic sorted order is ";
 
-    for(int i = 0; name[i] != '\0'; ++i)
+    for(int index = 0; name[index] != '\0'; ++index)
     {
-        std::cout << name[i] << " ";
+        std::cout << name[index] << " ";
     }
-
+    
     return 0;
 }
