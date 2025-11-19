@@ -12,19 +12,19 @@ bool isValidNumber(int number)
 {
     if (std::cin.fail()) 
     {
-        std::cout << "Invalid input! Not a valid number.\n";
+        std::cout << "Invalid input! Not a valid number." << std::endl;
         std::cin.clear();
         std::cin.ignore(std::numeric_limits<std::streamsize>::max(), '\n');
         return false;
     }
     else if (number < 0)
     {
-        std::cout << "Invalid input! Enter a positive number.\n";
+        std::cout << "Invalid input! Enter a positive number." << std::endl;
         return false;
     }
     else if (number == 0)
     {
-        std::cout << "Invalid input! Number cannot be zero.\n";
+        std::cout << "Invalid input! Number cannot be zero." << std::endl;
         return false;
     }
     else
@@ -43,9 +43,10 @@ bool isValidName(const std::string& name)
     for (char ch : name) {
         if (!std::isalpha(ch)) 
         {
-            std::cout << "Invalid input! Name cannot have number or special character.\n";
+            std::cout << "Invalid input! Name cannot have number or special character." << std::endl;
             return false;
         }
     }
+
     return true;
 }

@@ -85,7 +85,7 @@ void UiUtility::DisplayAllStudents() const
     for (const auto& student : studentManager.GetAll()) 
     {
         student.Display();
-        std::cout << "----------------------------------------\n";
+        std::cout << "----------------------------------------" << std::endl;
     }
 }
 
@@ -102,7 +102,7 @@ void UiUtility::SearchStudent() const
     auto student = studentManager.FindByName(name);
     if (!student) 
     {
-        std::cout << "Student not found!\n";      
+        std::cout << "Student not found!" << std::endl;      
     } 
     else 
     {

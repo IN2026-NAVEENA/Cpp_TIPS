@@ -16,16 +16,20 @@ TARGETS = $(addprefix $(BIN_DIR)/,$(PROGRAMS))
 # Ensure build and bin directories exist
 $(shell mkdir -p $(OBJ_DIR) $(BIN_DIR))
 
-# Source files for studentmanager
+# Source files for each program
+NUMBERSWAP_SRCS = NumberSwap.cpp
 STUDENT_SRCS = Student.cpp UiUtility.cpp Validation.cpp Main.cpp StudentManager.cpp
-STUDENT_OBJS = $(addprefix $(OBJ_DIR)/,$(STUDENT_SRCS:.cpp=.o))
+
+# Object files
+NUMBERSWAP_OBJS = $(addprefix $(OBJ_DIR)/,$(NUMBERSWAP_SRCS:.cpp=.o))
+STUDENT_OBJS    = $(addprefix $(OBJ_DIR)/,$(STUDENT_SRCS:.cpp=.o))
 
 # Default target: build all executables
 all: $(TARGETS)
 
 # Build rules for executables
-$(BIN_DIR)/numberswap: $(OBJ_DIR)/numberswap.o
-	$(CXX) $(CXXFLAGS) $< -o $@
+$(BIN_DIR)/numberswap: $(NUMBERSWAP_OBJS)
+	$(CXX) $(CXXFLAGS) $^ -o $@
 
 $(BIN_DIR)/studentmanager: $(STUDENT_OBJS)
 	$(CXX) $(CXXFLAGS) $^ -o $@

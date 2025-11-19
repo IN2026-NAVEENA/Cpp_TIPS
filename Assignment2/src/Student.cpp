@@ -16,5 +16,5 @@ void Student::Display() const
 {
     std::cout << "Name       : " << name_ << '\n'
               << "Roll Number: " << rollNumber_ << '\n'
-              << "Rank       : " << rank_ << '\n';
+              << "Rank       : " << rank_ << std::endl;
 }

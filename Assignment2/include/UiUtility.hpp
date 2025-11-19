@@ -1,4 +1,5 @@
 #pragma once
+
 #include "StudentManager.hpp"
 
 /// @brief Provides utility methods to manage ui interaction.
