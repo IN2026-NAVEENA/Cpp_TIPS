@@ -4,6 +4,7 @@
 #include "DivideByZeroException.hpp"
 #include "Validation.hpp"
 
+/// @brief Menu-driven calculator loop.
 void Run()
 {
     int userChoice;
@@ -44,56 +45,93 @@ void Run()
                 case 4: 
                     result = Divide(firstInteger, secondInteger);
                     break;
-                }
+                default:
+                    std::cout << "Invalid choice! Enter a number between 1-5.";
+                    break;
+            }
             std::cout << "\nResult: " << result << std::endl;
         }
         catch(DivideByZeroException& e)
         {
-            std::cout << e.what() << std::endl;
+            std::cerr << "\nError " << e.ErrorCode() << " : " << e.what() << std::endl;
         }
         catch(std::exception& e)
         {
-            std::cout << e.what() << std::endl;
+            std::cerr << e.what() << std::endl;
         }
+
     } while (userChoice != 5);
 }
 
+/*
+@brief Performs addition operation.
+@param firstInteger The first integer to be added.
+@param secondInteger The second integer to be added.
+@return The sum of firstInteger and secondInteger.
+*/
 double Add(double firstInteger, double secondInteger)
 {
     return firstInteger + secondInteger;
 }
 
+/*
+@brief Performs subtraction operation.
+@param firstInteger The number from which secondInteger will be subtracted.
+@param secondInteger The number to subtract from firstInteger.
+@return The sum of firstInteger and secondInteger.
+*/
 double Subtract(double firstInteger, double secondInteger)
 {
     return firstInteger - secondInteger;
 }
 
+/*
+@brief Performs multiplication operation.
+@param firstInteger The first integer to be multiplied.
+@param secondInteger The second integer to be multiplied.
+@return The product of firstInteger and secondInteger.
+*/
 double Multiply(double firstInteger, double secondInteger)
 {
     return firstInteger * secondInteger;
 }
 
+/*
+@brief Performs division operation.
+@param firstInteger The dividend.
+@param secondInteger The divisor.
+@return The quotient of firstInteger and secondInteger.
+*/
 double Divide(double firstInteger, double secondInteger)
 {
     if (secondInteger == 0)
     {
-        throw DivideByZeroException();
+        throw DivideByZeroException(104, "Attempt to divide by zero");
     }
     return firstInteger / secondInteger;
 }
 
-double GetInteger(std::string prompt)
+/*
+@brief Gets an integer from the user.
+@param message The message displayed to the user to get input.
+@return The integer entered by the user.
+*/
+double GetInteger(const std::string& message)
 {
     double integer;
     do
     {        
-        std::cout << "Enter " << prompt;
+        std::cout << "Enter " << message;
         std::cin >> integer;
     } while(!isValidInteger());
 
     return integer;
 }
 
+/*
+@brief Gets the choice from the user to perform arithmetic operation.
+@return The choice entered by the user.
+*/
 int GetUserChoice()
 {
     int userChoice;

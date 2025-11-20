@@ -6,3 +6,6 @@
 
 # Ignore build folders in any subfolder
 **/build/
+
+# Ignore logs folders
+**/logs/
