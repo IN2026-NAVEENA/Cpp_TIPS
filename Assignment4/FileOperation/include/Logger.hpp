@@ -26,6 +26,12 @@ class Logger{
         void CreateDirectory(const std::filesystem::path& path);
 
         /*
+        @brief Creates a new file when the size of current file exceeds maxFileSize.
+        @param path The path of the directory to create the new log file.
+        */
+        void CreateNextFile(const std::filesystem::path& path);
+
+        /*
         @brief Writes a log entry with a timestamp.
         @param file The output file stream to write to.
         */

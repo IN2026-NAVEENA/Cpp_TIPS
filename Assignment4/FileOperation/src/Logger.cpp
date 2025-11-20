@@ -39,9 +39,7 @@ void Logger::Run(){
 
         if(std::filesystem::file_size(currentFile) > maxFileSize)
         {
-            outFile.close();
-            currentFile = GetFilePath(directoryPath);
-            outFile.open(currentFile);
+            CreateNextFile(directoryPath);
         }
 
         if(GetFolderSize(directoryPath) > maxFolderSize)
@@ -71,6 +69,17 @@ void Logger::CreateDirectory(const std::filesystem::path& path)
         std::cerr << "Filesystem error: " << e.what()
                   << "\nPath: " << e.path1() << std::endl;
     }
+}
+
+/*
+@brief Creates a new file when the size of current file exceeds maxFileSize.
+@param path The path of the directory to create the new log file.
+*/
+void Logger::CreateNextFile(const std::filesystem::path& path)
+{
+    outFile.close();
+    currentFile = GetFilePath(directoryPath);
+    outFile.open(currentFile);
 }
 
 /*
