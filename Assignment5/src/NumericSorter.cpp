@@ -26,7 +26,7 @@ double ParseToDouble(const std::string& userInput) {
 @param numbers Representing the vector of numbers.
 @param parsedValue The value to be inserted in the set.
 */
-void AddNumber(std::unordered_set<double>& numbers, double parsedValue) {
+void AddNumberToSet(std::unordered_set<double>& numbers, double parsedValue) {
     auto result = numbers.insert(parsedValue);
     if (!result.second) {
         std::cout << "Number already exist\n";
@@ -68,7 +68,7 @@ int main() {
         }
         try {               
             parsedValue = ParseToDouble(userInput);
-            AddNumber(numbers, parsedValue);
+            AddNumberToSet(numbers, parsedValue);
         }
         catch(const std::invalid_argument& e) {
             std::cout << e.what() << std::endl;

@@ -31,6 +31,8 @@ $(OBJ_DIR)/%.o: $(SRC_DIR)/%.cpp
 run-%: $(BIN_DIR)/%
 	./$<
 
+$(PROGRAMS): %: $(BIN_DIR)/%
+
 .PRECIOUS: $(OBJ_DIR)/%.o
 
 # Clean rule
