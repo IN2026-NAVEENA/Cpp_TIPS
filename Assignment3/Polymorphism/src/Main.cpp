@@ -3,7 +3,7 @@
 #include "Student.hpp"
 #include "Subject.hpp"
 
-/// @brief Entry point of the program. 
+/*@brief Entry point of the program.*/
 int main()
 {
     Person person("Naveena", 15);

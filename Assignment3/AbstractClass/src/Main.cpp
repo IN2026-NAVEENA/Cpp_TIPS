@@ -1,23 +1,19 @@
 #include<iostream>
+#include<memory>
+#include<vector>
 #include "Circle.hpp"
 #include "Square.hpp"
 
-/// @brief Entry point of the program. 
+/*@brief Entry point of the program.*/
 int main()
 {
-    Shape * shapes[] = 
-    {
-        new Circle(4),
-        new Square(10),
-    };
+    std::vector<std::unique_ptr<Shape>> shapes;
+    shapes.emplace_back(std::make_unique<Circle>(4));
+    shapes.emplace_back(std::make_unique<Square>(10));
 
-    for (Shape * shape: shapes) 
-    {
-        std::cout << "The area of " << shape -> GetShapeName() << " is " << shape -> CalculateArea() << std::endl;
-    }
-    
-    for (Shape * shape: shapes) {
-        delete shape;
+    for (const auto& shape : shapes) {
+        std::cout << "The area of " << shape->GetShapeName()
+                  << " is " << shape->CalculateArea() << '\n';
     }
 
     return 0;

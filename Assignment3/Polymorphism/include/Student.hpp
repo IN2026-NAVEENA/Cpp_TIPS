@@ -1,12 +1,13 @@
 #pragma once
+
 #include<string>
 #include "Person.hpp"
 
-/// @brief Represent the data model for student.
+/*@brief Represent the data model for student.*/
 class Student : public Person
 {
     private:
-        /// @brief The qualification of the student.
+        /*@brief The qualification of the student.*/
         std::string studentQualification;
 
     public:
@@ -19,6 +20,6 @@ class Student : public Person
         Student(std::string name, int age, std::string qualification) 
             : Person(name, age), studentQualification(qualification){}
 
-        /// @brief Displays the details of the student like their name, age and qualification.
+        /*@brief Displays the details of the student like their name, age and qualification.*/
         void ShowDetails() const override;
 };

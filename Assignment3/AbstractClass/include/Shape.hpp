@@ -1,17 +1,22 @@
 #pragma once
+
 #include<string>
 
-/// @brief Represent the model for Shape.
+/*@brief Represent the model for Shape.*/
 class Shape
 {
     public:
-        /// @brief Calculates the area of the shape.
-        /// @return The calculated area of the shape.
+        /*
+        @brief Calculates the area of the shape.
+        @return The calculated area of the shape.
+        */
         virtual double CalculateArea() = 0;
 
-        /// @brief Gets the name of the shape.
-        /// @return The name of the shape.
-        virtual std::string GetShapeName() const = 0;
+        /*
+        @brief Gets the name of the shape.
+        @return The name of the shape.
+        */
+        virtual std::string_view GetShapeName() const = 0;
 
         /*
         @brief Virtual default destructor for Shape.
