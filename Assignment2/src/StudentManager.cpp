@@ -1,14 +1,14 @@
+#include "StudentManager.hpp"
 #include<vector>
 #include<optional>
-#include "StudentManager.hpp"
 
 /*
 @brief  Adds a new student to the collection.
 @param s Student to be added to the collection.
 */
-void StudentManager::Add(Student student) 
+void StudentManager::Add(Student&& student) 
 { 
-    students.emplace_back(student); 
+    students_.emplace_back(std::move(student)); 
 }
 
 /*
@@ -18,9 +18,9 @@ void StudentManager::Add(Student student)
 */
 std::optional<Student> StudentManager::FindByName(const std::string& name) const
 {
-    for(const auto& student: students)
+    for(const auto& student: students_)
     {
-        if(student.getName() == name)
+        if(student.GetName() == name)
         {
             return student;
         }
@@ -34,5 +34,5 @@ std::optional<Student> StudentManager::FindByName(const std::string& name) const
 */
 const std::vector<Student>& StudentManager::GetAll() const
 { 
-    return students; 
+    return students_; 
 }

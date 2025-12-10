@@ -1,7 +1,7 @@
+#include "Validation.hpp"
 #include<iostream>
 #include<cmath>
 #include<string>
-#include "Validation.hpp"
 
 /*
 @brief Validates if the user input is positive number.
@@ -40,7 +40,7 @@ bool isValidNumber(int number)
 */
 bool isValidName(const std::string& name) 
 {
-    for (char ch : name) {
+    for (const char& ch : name) {
         if (!std::isalpha(ch)) 
         {
             std::cout << "Invalid input! Name cannot have number or special character." << std::endl;

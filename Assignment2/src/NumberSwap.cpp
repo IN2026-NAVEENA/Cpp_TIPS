@@ -12,7 +12,7 @@ void swapNumber(int& firstNumber, int& secondNumber)
     secondNumber = tempNumber;
 }
 
-/// @brief Entry point of the program.
+/*@brief Entry point of the program.*/
 int main()
 {
     int firstNumber = 10;

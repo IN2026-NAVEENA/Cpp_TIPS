@@ -1,17 +1,17 @@
-#include<iostream>
-#include<vector>
 #include "Student.hpp"
+#include<vector>
+#include<iostream>
 
 /*
 @brief Gets the name of the student
 @return Name of the student
 */
-std::string Student::getName() const 
+const std::string& Student::GetName() const 
 { 
     return name_; 
 }
 
-/// @brief Displays the details of the student
+/*@brief Displays the details of the student*/
 void Student::Display() const 
 {
     std::cout << "Name       : " << name_ << '\n'
