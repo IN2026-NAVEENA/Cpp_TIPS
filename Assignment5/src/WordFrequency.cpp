@@ -76,7 +76,7 @@ void printWords(const std::vector<std::pair<std::string, int>>& words) {
     }
 }
 
-/// @brief Entry point of the program.
+/*@brief Entry point of the program.*/
 int main()
 {
     std::filesystem::path currentPath = std::filesystem::current_path();

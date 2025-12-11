@@ -53,7 +53,7 @@ void DisplayNumbers(const std::vector<double>& numbers) {
     std::cout << std::endl;
 }
 
-/// @brief Entry point of the program.
+/*@brief Entry point of the program.*/
 int main() {
 
     std::unordered_set<double> numbers;

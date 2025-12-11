@@ -1,19 +1,8 @@
+#include "LiteralAddition.hpp"
 #include<iostream>
 #include<string>
 
-/*
-@brief Adds two values of type T.
-@tparam T The type of the values to be added.
-@param firstValue The first operand.
-@param secondValue The second operand.
-@return The sum of the two input values.
-*/
-template <typename T> T AddLiterals(T firstValue, T secondValue)
-{
-    return firstValue + secondValue;
-}
-
-/// @brief Entry point of the program.
+/*@brief Entry point of the program.*/
 int main()
 {
     std::cout << "The sum of 3 and 4 is: " << AddLiterals(3,4) << std::endl;
