@@ -35,7 +35,7 @@ class UiUtility
         @param validator A function that takes the input value and returns true if valid, false otherwise.
         */
         template <typename T, typename Validator>
-        void GetValidInput(const std::string& prompt, T& value, Validator validator);
+        void GetValidInput(const std::string& prompt, T& value, const Validator& validator);
 
     private: 
         /*@brief Reference to the student manager.*/
