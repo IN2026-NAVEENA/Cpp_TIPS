@@ -11,7 +11,7 @@ class Person
         @param name The name of the person.
         @param age The age of the person.
         */
-        Person(std::string name, int age) : personName(name), personAge(age) {}
+        Person(const std::string& name, int age) : personName(name), personAge(age) {}
 
         /*@brief Displays the name of the person.*/
         void ShowName() const;

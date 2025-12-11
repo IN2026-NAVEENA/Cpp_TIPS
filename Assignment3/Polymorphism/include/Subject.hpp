@@ -13,7 +13,7 @@ class Subject
         @param name The name of the subject.
         @param mark The mark of the subject.
         */
-        Subject(std::string name, int mark) : subjectName(name), subjectMark(mark) {}
+        Subject(const std::string& name, int mark) : subjectName(name), subjectMark(mark) {}
 
         /*
         @brief Overloads the + operator to combine two Subject objects.

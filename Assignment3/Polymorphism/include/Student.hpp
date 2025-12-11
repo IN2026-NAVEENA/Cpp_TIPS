@@ -13,7 +13,7 @@ class Student : public Person
         @param age The age of the student.
         @param qualification The qualification of the student.
         */
-        Student(std::string name, int age, std::string qualification) 
+        Student(const std::string& name, int age,const std::string& qualification) 
             : Person(name, age), studentQualification(qualification){}
 
         /*@brief Displays the details of the student like their name, age and qualification.*/
