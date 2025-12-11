@@ -17,17 +17,17 @@ int add(int firstNumber, int secondNumber) {
 @param firstNumber The first integer input.
 @param secondNumber The second integer input.
 */
-void printResult(std::function<int(int,int)> addFunction, int firstNumber, int secondNumber) {
-    std::cout << "The sum of: " << firstNumber << " and " << secondNumber << " is " << addFunction(firstNumber, secondNumber) << std::endl;
+void printResult(const std::function<int()>& addFunction, int firstNumber, int secondNumber) {
+    std::cout << "The sum of: " << firstNumber << " and " << secondNumber << " is " << addFunction() << std::endl;
 }
 
-/// @brief Entry point of the program.
+/*@brief Entry point of the program.*/
 int main() {
     int firstNumber = 3, secondNumber = 4;
 
     printResult(
-        [](int a, int b) {
-            return add(a, b);
+        [firstNumber, secondNumber]() {
+            return add(firstNumber, secondNumber);
         },
         firstNumber, secondNumber
     );

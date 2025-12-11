@@ -1,6 +1,4 @@
 # Compiler settings
-CC = gcc
-CXX = g++
 CFLAGS = -Iinclude -Wall -O0
 CXXFLAGS = -Iinclude -Wall -O0
 
@@ -45,7 +43,7 @@ $(BUILD)/voidpointers.o: $(SRC)/voidpointers.cpp | $(BUILD)
 run-factorial: $(BIN)/factorial.exe
 	./$(BIN)/factorial.exe
 
-run-lambda: $(BIN)/lambdafunction.exe
+run-lambdafunction: $(BIN)/lambdafunction.exe
 	./$(BIN)/lambdafunction.exe
 
 run-voidpointers: $(BIN)/voidpointers.exe

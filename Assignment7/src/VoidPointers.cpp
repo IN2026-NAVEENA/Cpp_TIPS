@@ -1,6 +1,6 @@
 #include <iostream>
 
-/// @brief Enumeration to describe numeric types for the Add function.
+/*@brief Enumeration to describe numeric types for the Add function.*/
 enum Datatype {
     Int,
     Float,
@@ -17,15 +17,15 @@ enum Datatype {
 double Add(void* firstNumber, void* secondNumber, Datatype datatype) {
     switch(datatype) {
         case Int:
-            return *(int*)firstNumber + *(int*)secondNumber;
+            return *static_cast<int*>(firstNumber) + *static_cast<int*>(secondNumber);
         case Float:
-            return *(float*)firstNumber + *(float*)secondNumber;
+            return *static_cast<float*>(firstNumber) + *static_cast<float*>(secondNumber);
         case Double:
-            return *(double*)firstNumber + *(double*)secondNumber;
+            return *static_cast<double*>(firstNumber) + *static_cast<double*>(secondNumber);
     }
 }
 
-/// @brief Entry point of the program.
+/*@brief Entry point of the program.*/
 int main() {
     int a = 3, b = 4;
     double result = Add(&a, &b, Int);
