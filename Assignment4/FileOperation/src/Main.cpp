@@ -1,7 +1,7 @@
 #include "Logger.hpp"
 #include "Signal.hpp"
 
-/// @brief Entry point of the program. 
+/*@brief Entry point of the program.*/
 int main()
 {
     SetUpSignalHandler();

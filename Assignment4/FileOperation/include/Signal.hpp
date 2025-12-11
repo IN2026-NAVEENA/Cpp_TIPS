@@ -10,5 +10,5 @@ extern std::atomic<bool> stopFlag;
 */
 void SetUpSignalHandler();
 
-/// @brief Sets up the signal handler for SIGINT
+/*@brief Sets up the signal handler for SIGINT*/
 void SignalHandler(int sig);

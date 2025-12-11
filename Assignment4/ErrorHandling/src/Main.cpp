@@ -1,6 +1,6 @@
 #include "Calculator.hpp"
 
-/// @brief Entry point of the program. 
+/*@brief Entry point of the program.*/
 int main()
 {
     Run();

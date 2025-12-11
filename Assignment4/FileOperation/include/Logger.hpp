@@ -4,19 +4,33 @@
 #include<filesystem>
 #include<filesystem>
 #include<fstream>
+#include<vector>
 
 constexpr std::uintmax_t maxFolderSize = 20ull * 1024;
 constexpr std::uintmax_t maxFileSize = 2ull * 1024;
 
 class Logger{
+    public:
+        /*
+        @brief Constructs a logger that manages log files in the specified directory.
+        @param path The directory path where log files will be created.
+        */
+        Logger(const std::filesystem::path& directoryPath);
+
+        /*@brief Ensures the current log file is properly closed.*/
+        ~Logger();
+
+        /*@brief Starts the logging loop until stopFlag is set.*/
+        void Run();
+
     private:
-        /// @brief The path of the directory to manage lof files.
+        /*@brief The path of the directory to manage lof files.*/
         std::filesystem::path directoryPath;
 
-        /// @brief The path of the current file to create and write to.
+        /*@brief The path of the current file to create and write to.*/
         std::filesystem::path currentFile;
 
-        /// @brief The output file stream to write to.
+        /*@brief The output file stream to write to.*/
         std::ofstream outFile;
 
         /*
@@ -39,20 +53,20 @@ class Logger{
 
         /*
         @brief Deletes up to 5 oldest files in the directory to free space.
-        @param path The directory containing log files.
+        @param files The vector of files to be deleted.
         */
-        void DeleteFiles(const std::filesystem::path& path);
-    
-    public:
+        void DeleteFiles(std::vector<std::filesystem::directory_entry> files);
+
         /*
-        @brief Constructs a logger that manages log files in the specified directory.
-        @param path The directory path where log files will be created.
+        @brief Sorts the files according to the write time of the file.
+        @param files The vector of files to be sorted.
         */
-        Logger(const std::filesystem::path& directoryPath);
+        void SortFilesByWriteTime(std::vector<std::filesystem::directory_entry>& files);
 
-        /// @brief Ensures the current log file is properly closed.
-        ~Logger();
-
-        /// @brief Starts the logging loop until stopFlag is set.
-        void Run();
+        /*
+        @brief Gets all the files in the given directory path.
+        @param path The path of the directory.
+        @return The vector of files in the directory.
+        */
+        std::vector<std::filesystem::directory_entry> GetAllFiles(const std::filesystem::path& path);
 };

@@ -2,7 +2,7 @@
 
 #include<string>
 
-/// @brief Menu-driven calculator loop.
+/*@brief Menu-driven calculator loop.*/
 void Run();
 
 /*

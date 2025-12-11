@@ -1,5 +1,5 @@
-#include<iostream>
 #include "Signal.hpp"
+#include<iostream>
 
 std::atomic<bool> stopFlag = false;
 
@@ -13,7 +13,7 @@ void SignalHandler(int sig)
     stopFlag = true;
 }
 
-/// @brief Sets up the signal handler for SIGINT
+/*@brief Sets up the signal handler for SIGINT*/
 void SetUpSignalHandler()
 {
     signal(SIGINT, SignalHandler);

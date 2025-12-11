@@ -1,5 +1,5 @@
-#include<sstream>
 #include "Utility.hpp"
+#include<sstream>
 
 /*
 @brief Gets the current and generates a timestamp string in the format DD-MM-YYYY_HH-MM-SS.
