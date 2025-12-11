@@ -1,8 +1,8 @@
-# Ignore VS Code settings in any subfolder
+# Ignore VS Code settings everywhere
 */.vscode/
 
-# Ignore bin folders in any subfolder
+# Ignore bin folders everywhere
 */bin/
 
-# Ignore build folders in any subfolder
+# Ignore build folders everywhere
 */build/
