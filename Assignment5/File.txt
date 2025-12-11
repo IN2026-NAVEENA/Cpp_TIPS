@@ -1,0 +1,7 @@
+Wikipedia began as a related project for Nupedia. Nupedia was a free English-language 
+online encyclopedia project. Nupedia's articles were written and owned by Bomis, Inc 
+which was a web portal company. The important people of the company were Jimmy Wales, 
+the person in charge of Bomis, and Larry Sanger, the editor-in-chief of Nupedia. 
+Nupedia was first licensed under the Nupedia Open Content License which was changed 
+to the GNU Free Documentation License before Wikipedia was founded and made their 
+first article when Richard Stallman requested them.
