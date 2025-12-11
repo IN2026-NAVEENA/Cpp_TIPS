@@ -2,14 +2,14 @@
 
 #include<string>
 
-/// @brief Represents a task with operation to be performed and the operands.
+/*@brief Represents a task with operation to be performed and the operands.*/
 struct Task
 {
-    /// @brief The arithmetic operation to perform ("+", "-", "*", "/").
+    /*@brief The arithmetic operation to perform ("+", "-", "*", "/").*/
     std::string operation;
-    /// @brief The first operand of the operation.
+    /*@brief The first operand of the operation*/
     double firstNumber;
-    /// @brief The second operand of the operation.
+    /*@brief The second operand of the operation.*/
     double secondNumber;
 };
 

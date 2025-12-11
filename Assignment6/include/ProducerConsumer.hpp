@@ -4,13 +4,13 @@
 #include<semaphore>
 #include<queue>
 
-/// @brief Controls when the producer should get task from the user.
+/*@brief Controls when the producer should get task from the user.*/
 extern std::binary_semaphore signalToProducer;
 
-/// @brief Controls when the consumer should perform the task and display the result.
+/*@brief Controls when the consumer should perform the task and display the result.*/
 extern std::binary_semaphore signalToConsumer;
 
-/// @brief A queue to store the task to be performed.
+/*@brief A queue to store the task to be performed.*/
 extern std::queue<std::string> taskQueue;
 
 /*
@@ -26,8 +26,8 @@ std::string GetUserOperation();
 */
 double GetInteger(const std::string& prompt);
 
-/// @brief Continuously produces tasks based on user input and enqueues.
+/*@brief Continuously produces tasks based on user input and enqueues.*/
 void Producer();
 
-/// @brief Continuously performs tasks based on user input and displays the result.
+/*@brief Continuously performs tasks based on user input and displays the result.*/
 void Consumer();

@@ -1,17 +1,17 @@
+#include "ProducerConsumer.hpp"
 #include <iostream>
 #include <thread>
 #include <sstream>
 #include "DivideByZeroException.hpp"
-#include "ProducerConsumer.hpp"
 #include "Task.hpp"
 
-/// @brief Controls when the producer should get task from the user.
+/*@brief Controls when the producer should get task from the user.*/
 std::binary_semaphore signalToProducer{1};
 
-/// @brief Controls when the consumer should perform the task and display the result.
+/*@brief Controls when the consumer should perform the task and display the result.*/
 std::binary_semaphore signalToConsumer{0};
 
-/// @brief A queue to store the task to be performed.
+/*@brief A queue to store the task to be performed.*/
 std::queue<std::string> taskQueue;
 
 /*
@@ -51,11 +51,11 @@ double GetInteger(const std::string& prompt) {
     }
 }
 
-/// @brief Continuously produces tasks based on user input and enqueues.
+/*@brief Continuously produces tasks based on user input and enqueues.*/
 void Producer() {
     while (true) {
         signalToProducer.acquire();
-        std::string operation = GetUserOperation();
+        auto operation = GetUserOperation();
 
         if (operation == "stop") {
             taskQueue.push(operation);
@@ -70,7 +70,7 @@ void Producer() {
     }
 }
 
-/// @brief Continuously performs tasks based on user input and displays the result.
+/*@brief Continuously performs tasks based on user input and displays the result.*/
 void Consumer() {
     while (true) {
         signalToConsumer.acquire();

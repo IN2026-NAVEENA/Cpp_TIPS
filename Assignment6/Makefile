@@ -1,4 +1,3 @@
-CXX = g++
 CXXFLAGS = -std=c++20 -Wall -Iinclude -MMD -MP
 
 # Directories
@@ -9,9 +8,6 @@ BIN_DIR = bin
 # Executable
 TARGET = $(BIN_DIR)/multithreading
 
-# Ensure build and bin directories exist
-$(shell mkdir -p $(OBJ_DIR) $(BIN_DIR))
-
 # Source and object files
 SOURCES = $(wildcard $(SRC_DIR)/*.cpp)
 OBJECTS = $(SOURCES:$(SRC_DIR)/%.cpp=$(OBJ_DIR)/%.o)
@@ -19,12 +15,19 @@ OBJECTS = $(SOURCES:$(SRC_DIR)/%.cpp=$(OBJ_DIR)/%.o)
 # Default target
 all: $(TARGET)
 
+# Ensure build and bin directories exist
+$(BIN_DIR):
+	mkdir -p $@
+
+$(OBJ_DIR):
+	mkdir -p $@
+
 # Link executable
-$(TARGET): $(OBJECTS)
+$(TARGET): $(OBJECTS) | $(BIN_DIR)
 	$(CXX) $(CXXFLAGS) $^ -o $@
 
 # Compile object files
-$(OBJ_DIR)/%.o: $(SRC_DIR)/%.cpp
+$(OBJ_DIR)/%.o: $(SRC_DIR)/%.cpp | $(OBJ_DIR)
 	$(CXX) $(CXXFLAGS) -c $< -o $@
 
 # Run target
@@ -33,7 +36,7 @@ run: $(TARGET)
 
 # Clean rule
 clean:
-	rm -rf $(OBJ_DIR)/*.o $(OBJ_DIR)/*.d $(BIN_DIR)/*
+	rm -rf $(OBJ_DIR) $(BIN_DIR)
 
 # Include dependency files
 -include $(OBJ_DIR)/*.d

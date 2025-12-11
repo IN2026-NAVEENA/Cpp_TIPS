@@ -1,6 +1,6 @@
 #include "Task.hpp"
-#include "DivideByZeroException.hpp"
 #include <sstream>
+#include "DivideByZeroException.hpp"
 
 /*
 @brief Creates a task from the given operation and two operands.

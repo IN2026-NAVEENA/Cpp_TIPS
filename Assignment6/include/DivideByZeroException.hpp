@@ -3,16 +3,9 @@
 #include<exception>
 #include<string>
 
-/// @brief  Exception type thrown when a division by zero is attempted.
+/*@brief  Exception type thrown when a division by zero is attempted.*/
 class DivideByZeroException : std::exception
 {
-    private:
-        /// @brief The error message associated with the exception.
-        int errorCode_;
-
-        /// @brief The error message explaining the cause of the exception.
-        std::string errorMessage_;
-
     public:
         /*
         @brief Constructs a DivideByZeroException with an error code and message.
@@ -32,4 +25,11 @@ class DivideByZeroException : std::exception
         @return The integer error code.
         */
         int ErrorCode() const noexcept;
+
+    private:
+        /*@brief The error message associated with the exception.*/
+        int errorCode_;
+        
+        /*@brief The error message explaining the cause of the exception.*/
+        std::string errorMessage_;
 };
