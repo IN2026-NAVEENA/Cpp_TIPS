@@ -6,10 +6,6 @@
 /*@brief Represent the data model for student.*/
 class Student : public Person
 {
-    private:
-        /*@brief The qualification of the student.*/
-        std::string studentQualification;
-
     public:
         /*
         @brief Parameterized constructor that initializes student with name, age and qualification.
@@ -22,4 +18,8 @@ class Student : public Person
 
         /*@brief Displays the details of the student like their name, age and qualification.*/
         void ShowDetails() const override;
+
+    private:
+        /*@brief The qualification of the student.*/
+        std::string studentQualification;
 };

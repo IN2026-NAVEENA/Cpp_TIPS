@@ -5,12 +5,6 @@
 /*@brief Represent the data model for person.*/
 class Person
 {
-    protected:
-        /*@brief The name of the person.*/
-        std::string personName;
-        /*@brief The age of the person.*/
-        int personAge;
-
     public:
         /*
         @brief Parameterized constructor that initializes person with name and age.
@@ -24,4 +18,11 @@ class Person
 
         /*@brief Displays the details of the person like their name and age.*/
         virtual void ShowDetails() const;
+        
+    protected:
+        /*@brief The name of the person.*/
+        std::string personName;
+        
+        /*@brief The age of the person.*/
+        int personAge;
 };
